@@ -14,3 +14,31 @@ body{
     padding: 0;
     line-height: 1.5;
 }
+
+.container{
+    max-width: 800px;
+    margin: 1rem auto;
+    padding: 1rem;
+    /* grid-template-columns: repeat(2, 1fr); */
+}
+
+article{
+    display: flex;
+    padding: 1rem;
+    border: 1px solid black;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.excerpt{
+    padding-left: 1rem;
+}
+
+.description{
+    padding-left: 1rem;
+}
+
+
+h4{
+    text-align: center;
+}
