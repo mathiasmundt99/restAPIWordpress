@@ -1,12 +1,13 @@
-*,
-*::before,
-*::after{
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+*{
     box-sizing: border-box;
+    font-family: 'Ubuntu';
 }
 
 :root{
     --stdPadding: 0px;
     --stdMargin: 0px;
+    --green: #92ca5b;
 }
 
 body{
@@ -42,3 +43,36 @@ article{
 h4{
     text-align: center;
 }
+
+/*----------------------------------------------------*/
+.moreBtn{
+    cursor: pointer;
+    background-color: white;
+    font-weight: 700;
+    padding: 16px 24px;
+    border: 2px solid black;
+    letter-spacing: 2.5px;
+    height: 3rem;
+}
+.moreBtn:hover{
+    background-color: rgb(219, 219, 219);
+    transition: 0.3s;
+}
+
+
+.categoryFEPGrid{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.categoryFEP{
+    display: flex;
+    flex-direction: column;
+}
+.categoryFEP img{
+    max-width: 7.5rem;
+    
+    border-radius: 50%;
+}
+
+/*values fra listepunkter i filter skal mache value fra js
