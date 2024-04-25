@@ -82,7 +82,7 @@ function getRecipesByTaxonomies(cooktimeId, dietId){
 
 getToken()
 .then(() => {
-    getRecipesByTaxonomies(slowCooktimeId);
+    getRecipesByTaxonomies(fastCooktimeId);
 })
 .catch(err => console.error('Error fetching token:', err));
 
