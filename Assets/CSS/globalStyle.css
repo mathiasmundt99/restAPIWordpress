@@ -47,7 +47,32 @@ h4{
 /*----------------------------------------------------*/
 .moreBtn{
     cursor: pointer;
-    background-color: var(--green);
+    background-color: white;
     font-weight: 700;
-
+    padding: 16px 24px;
+    border: 2px solid black;
+    letter-spacing: 2.5px;
+    height: 3rem;
 }
+.moreBtn:hover{
+    background-color: rgb(219, 219, 219);
+    transition: 0.3s;
+}
+
+
+.categoryFEPGrid{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.categoryFEP{
+    display: flex;
+    flex-direction: column;
+}
+.categoryFEP img{
+    max-width: 7.5rem;
+    
+    border-radius: 50%;
+}
+
+/*values fra listepunkter i filter skal mache value fra js
