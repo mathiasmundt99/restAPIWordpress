@@ -1,5 +1,4 @@
-// Dittes URL
-const baseUrl = 'https://api.xn--dittebrgesen-0jb.dk/wp-json/wp/v2/';
+const baseUrl = 'https://mundt.gg/wp-json/wp/v2/';
 const containerEl = document.querySelector('.container'); 
 const recipeID = 3;
 
@@ -15,7 +14,7 @@ fetch(baseUrl + 'posts')
 .catch((err) => console.log('Error ', err));
 }
 
-// getAllPosts();
+getAllPosts();
 
 function getPostsByCat(id){
 fetch(baseUrl +'posts?categories=' + id)
@@ -39,3 +38,4 @@ function renderPost(post){
     </article>
     `;
 }
+
