@@ -6,11 +6,11 @@ const fastCooktimeId = 8;
 const mediumCooktimeId = 9;
 const slowCooktimeId = 10;
 
-const diabeticFriendly = 35;
-const glutenFree = 5;
-const keto = 7;
-const vegan = 36;
-const vegetarian = 6;
+const diabeticFriendlyId = 35;
+const glutenFreeId = 5;
+const ketoId = 7;
+const veganId = 36;
+const vegetarianId = 6;
 
 const containerEL = document.querySelector('.container');
 const individualRecipesEl = document.querySelector('.individualRecipes')
@@ -53,21 +53,18 @@ function getPrivateRecipes(){
     .catch(err => console.log('Error: ', err))
 }
 
-
+// MARK! Hvordan skal url se ud??????
 function getRecipesByTaxonomies(cooktimeId, dietId){
     const baseUrl = 'https://mundt.gg/wp-json/wp/v2/';
     let url = baseUrl + 'posts?status=private';
 
     if (cooktimeId) {
-        url += `&cook_time=${cooktimeId}`;
+        url += `&cook-time=${cooktimeId}`;
     }
     if (dietId) {
-        url += `&diet=${dietId}`;
+        url += (cooktimeId ? '&' : '') + `diet=${dietId}`;
     }
     // Her skal laves noget så man kan vælge hvor mange posts der skal vises
-    // if (amount) {
-    //     url += `&amount=${amount}`;
-    // }
 
     return fetch(url, {
         headers: {
@@ -83,9 +80,10 @@ function getRecipesByTaxonomies(cooktimeId, dietId){
 
 getToken()
 .then(() => {
-    getRecipesByTaxonomies(fastCooktimeId);
+    getRecipesByTaxonomies(fastCooktimeId, veganId);
 })
 .catch(err => console.error('Error fetching token:', err));
+
 
 // Function til at render bestemter filtre
 
@@ -101,6 +99,7 @@ getToken()
 //getPostByTax.then.render()
 
 // Denne function skal render opskrifterner
+
 // function renderRecipe(recipe, placement){
 // recipe.forEach(recipe => {
 //     individualRecipesEl.innerHTML +=
