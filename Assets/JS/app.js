@@ -13,6 +13,7 @@ const vegan = 36;
 const vegetarian = 6;
 
 const containerEL = document.querySelector('.container');
+const individualRecipesEl = document.querySelector('.individualRecipes')
 
 
 // Måske en if statement på undersiderne
@@ -99,7 +100,25 @@ getToken()
 
 //getPostByTax.then.render()
 
-
-function renderRecipe(recipe, placement){
-
-    }
+// Denne function skal render opskrifterner
+// function renderRecipe(recipe, placement){
+// recipe.forEach(recipe => {
+//     individualRecipesEl.innerHTML +=
+//     `<h5 id="title"></h5>
+//     <img src="" alt="">
+//     <p id="author"></p>
+//     <input type="number" id="servings">
+//     <p id="description"></p>
+//     <p id="preTime"></p>
+//     <p id="cookTime"></p>
+//     <ul id="ingredients">
+//     </ul>
+//     <ul id="ingredients2">
+//     </ul>
+//     <ol id="method">
+//     </ol>
+//     <div class="recipesTags">
+ 
+//     </div>` 
+// });
+//     }
