@@ -103,16 +103,23 @@ function renderRecipe(recipe){
             <p>${recipe.acf.author}</p>
             <input type="number" id="servings">
             <p>${recipe.acf.description}</p>
-            <p>${recipe.acf.preTime}</p>
-            <p>${recipe.acf.cookTime}</p>
-            
-            
-            
+            <p>${recipe.acf.prep_time}</p>
+            <p>${recipe.acf.cook_time}</p>
+            <ul class="ingredients" id="${recipe.id}">
+            </ul>
             <div class="recipesTags">
                 <!-- Add tags here if needed -->
             </div>
         </div>`; 
     individualRecipesEl.innerHTML += recipeHTML;
+    Object.values(recipe.acf.ingredients).forEach(ingredient => {
+        if (ingredient != "") {
+            let li = document.createElement("li");
+            let ul = document.getElementById(recipe.id);
+            li.innerHTML = ingredient;
+            ul.appendChild(li);
+        }
+    })
 }
 
 /*<ul class="ingredients">
@@ -167,26 +174,28 @@ function renderRecipe(recipe){
 //     }
 
 //-----------------------------------------------------------------------------------
-const accordionItems = document.querySelectorAll(".accordion-item");
+// const accordionItems = document.querySelectorAll(".accordion-item");
 
-accordionItems.forEach(item =>
-  item.addEventListener("click", () => {
-    const isItemOpen = item.classList.contains("open");
-    accordionItems.forEach(item => item.classList.remove("open"));
-    if (!isItemOpen) {
-      item.classList.toggle("open");
-    }
-  })
-);
+// accordionItems.forEach(item =>
+//   item.addEventListener("click", () => {
+//     const isItemOpen = item.classList.contains("open");
+//     accordionItems.forEach(item => item.classList.remove("open"));
+//     if (!isItemOpen) {
+//       item.classList.toggle("open");
+//     }
+//   })
+// );
 
-const filterItems = document.querySelectorAll(".filters");
+// const filterItems = document.querySelectorAll(".filters");
 
-filterItems.forEach(item =>
-  item.addEventListener("click", () => {
-    const isItemOpen = item.classList.contains("open");
-    filterItems.forEach(item => item.classList.remove("open"));
-    if (!isItemOpen) {
-      item.classList.toggle("open");
-    }
-  })
-);
+// filterItems.forEach(item =>
+//   item.addEventListener("click", () => {
+//     const isItemOpen = item.classList.contains("open");
+//     filterItems.forEach(item => item.classList.remove("open"));
+//     if (!isItemOpen) {
+//       item.classList.toggle("open");
+//     }
+//   })
+// );
+
+//--------------------------------Filtering Accordion--------------------------------------
