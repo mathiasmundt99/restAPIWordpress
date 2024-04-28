@@ -70,9 +70,54 @@ h4{
     flex-direction: column;
 }
 .categoryFEP img{
-    max-width: 7.5rem;
-    
+    width: 7.5rem;
+    height: 7.5rem;
     border-radius: 50%;
 }
+.imgSqrWrapper{
+    
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
 
-/*values fra listepunkter i filter skal mache value fra js
+/*values fra listepunkter i filter skal mache value fra js*/
+
+
+.filterContainer{
+    width: 12rem;
+}
+.filters {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.filterAccordion {
+    cursor: pointer;
+    background-color: white;
+    font-weight: 700;
+    padding: 10px;
+    border: 2px solid black;
+    letter-spacing: 2.5px;
+    height: 3rem;
+    margin-bottom: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+}
+
+.icon {
+  margin-left: auto;
+  transform: rotate(90deg);
+  transition: all 0.2s ease;
+}
+.open .icon {
+  transform: rotate(0);
+}
+
+.accordion-content {
+    display: none;
+    padding: 10px;
+  }
+  
