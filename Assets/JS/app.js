@@ -13,7 +13,7 @@ const veganId = 36;
 const vegetarianId = 6;
 
 const containerEL = document.querySelector('.container');
-const individualRecipesEl = document.querySelector('.individualRecipes')
+const individualRecipesEl = document.querySelector('.individualRecipes');
 
 
 // Måske en if statement på undersiderne
@@ -84,6 +84,29 @@ getToken()
 })
 .catch(err => console.error('Error fetching token:', err));
 
+function renderRecipe(recipe, placement){
+    recipe.forEach(recipe => {
+
+    individualRecipesEl.innerHTML +=
+        `<h5 id="title"></h5>
+        <img src="" alt="">
+        <p id="author"></p>
+        <input type="number" id="servings">
+        <p id="description"></p>
+        <p id="preTime"></p>
+        <p id="cookTime"></p>
+        <ul id="ingredients">
+        </ul>
+        <ul id="ingredients2">
+        </ul>
+        <ol id="method">
+        </ol>
+        <div class="recipesTags">
+         
+        </div>` 
+    });
+}
+
 
 // Function til at render bestemter filtre
 
@@ -100,7 +123,7 @@ getToken()
 
 // Denne function skal render opskrifterner
 
-// function renderRecipe(recipe, placement){
+// function renderRecipe(){
 // recipe.forEach(recipe => {
 //     individualRecipesEl.innerHTML +=
 //     `<h5 id="title"></h5>
