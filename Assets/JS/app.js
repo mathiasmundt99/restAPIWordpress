@@ -52,7 +52,8 @@ function getPrivateRecipes(){
     })
     .then(res => res.json())
     .then(recipes => {
-        console.log(recipes);
+        console.log('all recipes', recipes);
+        recipes.forEach(recipe =>{renderRecipe(recipe)});
     })
     .catch(err => console.log('Error: ', err))
 }
@@ -70,6 +71,7 @@ function getRecipesByTaxonomies(cooktimeId, dietId){
     }
     // Her skal laves noget så man kan vælge hvor mange posts der skal vises
 
+
     return fetch(url, {
         headers: {
             Authorization: "Bearer " + sessionStorage.getItem('myToken')
@@ -78,7 +80,10 @@ function getRecipesByTaxonomies(cooktimeId, dietId){
     .then(res => res.json())
     .then(recipes => {
         console.log('Recipes by taxonomies', recipes);
-        recipes.forEach(recipe => renderRecipe(recipe));
+        recipes.forEach(recipe => {
+            console.log('Rendering recipe:', recipe);
+            renderRecipe(recipe);
+        });
     })
     .catch(err => console.log('Error: ', err))
     
@@ -91,29 +96,34 @@ getToken()
 .catch(err => console.error('Error fetching token:', err));
 
 function renderRecipe(recipe){
+    let recipeHTML =
+        `<div class="recipe">
+            <h5>${recipe.acf.title}</h5>
+            <img src="${recipe.acf.image}" alt="${recipe.acf.title}">
+            <p>${recipe.acf.author}</p>
+            <input type="number" id="servings">
+            <p>${recipe.acf.description}</p>
+            <p>${recipe.acf.preTime}</p>
+            <p>${recipe.acf.cookTime}</p>
+            
+            
+            
+            <div class="recipesTags">
+                <!-- Add tags here if needed -->
+            </div>
+        </div>`; 
+    individualRecipesEl.innerHTML += recipeHTML;
+}
 
-
-        individualRecipesEl.innerHTML +=
-        `<h5 id="title"></h5>
-        <img src="" alt="">
-        <p id="${acf.author}"></p>
-        <input type="number" id="servings">
-        <p id="description"></p>
-        <p id="preTime"></p>
-        <p id="cookTime"></p>
-        <ul id="ingredients">
-        </ul>
-        <ul id="ingredients2">
-        </ul>
-        <ol id="method">
-        </ol>
-        <div class="recipesTags">
-         
-        </div>` 
-    
-};
-
-
+/*<ul class="ingredients">
+            ${recipe.acf.ingredients.forEach(ingridient => {
+               const newLi = document.createElement("li");
+               newLi.innerHTML = ingridient;
+            })}
+            </ul>
+            <ol class="method">
+            ${recipe.acf.method.map(step => `<li>${step}</li>`).join('')}
+            </ol>*/
 // Function til at render bestemter filtre
 
 // getToken()
@@ -122,7 +132,12 @@ function renderRecipe(recipe){
 //     const containerEl = document.querySelector('.container');
 //     containerEL.innerHTML = '';
 //     reipes.forEach((recipe) => renderRecipe(recipe, containerEL));
-// });
+// });  
+//<ul class="ingredients"><ol class="method">
+               // ${recipe.acf.method.map(step => `<li>${step}</li>`).join('')}
+            //</ol>
+              //  ${recipe.acf.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>
+
 
 
 //getPostByTax.then.render()
