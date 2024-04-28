@@ -38,7 +38,11 @@ function getToken(){
     .catch(err => console.log('Error: ', err))
 }
 
-// getToken().then(() => getPrivateRecipes());
+
+
+getToken().then(() => getPrivateRecipes());
+
+
 
 function getPrivateRecipes(){
     fetch(baseUrl + `posts?status=private&categegories=${recipeId}`, {
@@ -74,8 +78,10 @@ function getRecipesByTaxonomies(cooktimeId, dietId){
     .then(res => res.json())
     .then(recipes => {
         console.log('Recipes by taxonomies', recipes);
+        recipes.forEach(recipe => renderRecipe(recipe));
     })
     .catch(err => console.log('Error: ', err))
+    
 }
 
 getToken()
@@ -84,13 +90,13 @@ getToken()
 })
 .catch(err => console.error('Error fetching token:', err));
 
-function renderRecipe(recipe, placement){
-    recipe.forEach(recipe => {
+function renderRecipe(recipe){
 
-    individualRecipesEl.innerHTML +=
+
+        individualRecipesEl.innerHTML +=
         `<h5 id="title"></h5>
         <img src="" alt="">
-        <p id="author"></p>
+        <p id="${acf.author}"></p>
         <input type="number" id="servings">
         <p id="description"></p>
         <p id="preTime"></p>
@@ -104,8 +110,8 @@ function renderRecipe(recipe, placement){
         <div class="recipesTags">
          
         </div>` 
-    });
-}
+    
+};
 
 
 // Function til at render bestemter filtre
