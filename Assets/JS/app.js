@@ -100,7 +100,6 @@ function renderRecipe(recipe){
         `<div class="recipe">
             <h5>${recipe.acf.title}</h5>
             <img src="${recipe.acf.image}" alt="${recipe.acf.title}">
-            <img src="https://source.unsplash.com/3tYZjGSBwbk" alt="">
             <p>${recipe.acf.author}</p>
             <input type="number" id="servings">
             <p>${recipe.acf.description}</p>
