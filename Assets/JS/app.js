@@ -2,9 +2,9 @@ const baseUrl ='https://mundt.gg/wp-json/wp/v2/';
 
 const recipeId =3;
 
-const fastCooktimeId = 8;
-const mediumCooktimeId = 9;
-const slowCooktimeId = 10;
+const fastCooktimeId = 45;
+const mediumCooktimeId = 44;
+const slowCooktimeId = 43;
 
 const diabeticFriendlyId = 35;
 const glutenFreeId = 5;
@@ -71,7 +71,6 @@ function getRecipesByTaxonomies(cooktimeId, dietId){
     }
     // Her skal laves noget så man kan vælge hvor mange posts der skal vises
 
-
     return fetch(url, {
         headers: {
             Authorization: "Bearer " + sessionStorage.getItem('myToken')
@@ -86,7 +85,6 @@ function getRecipesByTaxonomies(cooktimeId, dietId){
         });
     })
     .catch(err => console.log('Error: ', err))
-    
 }
 
 getToken()
