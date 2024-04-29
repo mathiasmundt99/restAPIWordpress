@@ -11,7 +11,7 @@
 }
 
 body{
-    margin: 0;
+    margin: 36px;
     padding: 0;
     line-height: 1.5;
 }
@@ -83,41 +83,38 @@ h4{
 
 /*values fra listepunkter i filter skal mache value fra js*/
 
-
-.filterContainer{
-    width: 12rem;
-}
-.filters {
-    margin-bottom: 10px;
-    padding: 10px;
-}
-.filterAccordion {
+.accordion {
     cursor: pointer;
     background-color: white;
     font-weight: 700;
-    padding: 10px;
+    padding: 16px 24px;
     border: 2px solid black;
     letter-spacing: 2.5px;
+    text-align: left;
     height: 3rem;
-    margin-bottom: 10px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  
 }
-
-.icon {
-  margin-left: auto;
-  transform: rotate(90deg);
-  transition: all 0.2s ease;
+.active, .accordion:hover {
+    background-color: rgb(219, 219, 219);
+    transition: 0.3s;
 }
-.open .icon {
-  transform: rotate(0);
-}
-
-.accordion-content {
+.accordionFilterBtns{
+    padding: 0px 18px;
+    background-color: white;
     display: none;
-    padding: 10px;
-  }
+    overflow: hidden;
+}
+
+.accordion:after {
+    content: '\02795';
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+  
+.active:after {
+    content: "\2796";
+}
+
+
   

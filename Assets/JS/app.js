@@ -100,6 +100,7 @@ function renderRecipe(recipe){
         `<div class="recipe">
             <h5>${recipe.acf.title}</h5>
             <img src="${recipe.acf.image}" alt="${recipe.acf.title}">
+            <img src="https://source.unsplash.com/3tYZjGSBwbk" alt="">
             <p>${recipe.acf.author}</p>
             <input type="number" id="servings">
             <p>${recipe.acf.description}</p>
@@ -122,80 +123,24 @@ function renderRecipe(recipe){
     })
 }
 
-/*<ul class="ingredients">
-            ${recipe.acf.ingredients.forEach(ingridient => {
-               const newLi = document.createElement("li");
-               newLi.innerHTML = ingridient;
-            })}
-            </ul>
-            <ol class="method">
-            ${recipe.acf.method.map(step => `<li>${step}</li>`).join('')}
-            </ol>*/
-// Function til at render bestemter filtre
-
-// getToken()
-// .then(() => getRecipesByTaxonomies(fastCooktimeId, keto))
-// .then((recipes) => {
-//     const containerEl = document.querySelector('.container');
-//     containerEL.innerHTML = '';
-//     reipes.forEach((recipe) => renderRecipe(recipe, containerEL));
-// });  
-//<ul class="ingredients"><ol class="method">
-               // ${recipe.acf.method.map(step => `<li>${step}</li>`).join('')}
-            //</ol>
-              //  ${recipe.acf.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>
-
-
-
-//getPostByTax.then.render()
-
-// Denne function skal render opskrifterner
-
-// function renderRecipe(){
-// recipe.forEach(recipe => {
-//     individualRecipesEl.innerHTML +=
-//     `<h5 id="title"></h5>
-//     <img src="" alt="">
-//     <p id="author"></p>
-//     <input type="number" id="servings">
-//     <p id="description"></p>
-//     <p id="preTime"></p>
-//     <p id="cookTime"></p>
-//     <ul id="ingredients">
-//     </ul>
-//     <ul id="ingredients2">
-//     </ul>
-//     <ol id="method">
-//     </ol>
-//     <div class="recipesTags">
- 
-//     </div>` 
-// });
-//     }
-
-//-----------------------------------------------------------------------------------
-// const accordionItems = document.querySelectorAll(".accordion-item");
-
-// accordionItems.forEach(item =>
-//   item.addEventListener("click", () => {
-//     const isItemOpen = item.classList.contains("open");
-//     accordionItems.forEach(item => item.classList.remove("open"));
-//     if (!isItemOpen) {
-//       item.classList.toggle("open");
-//     }
-//   })
-// );
-
-// const filterItems = document.querySelectorAll(".filters");
-
-// filterItems.forEach(item =>
-//   item.addEventListener("click", () => {
-//     const isItemOpen = item.classList.contains("open");
-//     filterItems.forEach(item => item.classList.remove("open"));
-//     if (!isItemOpen) {
-//       item.classList.toggle("open");
-//     }
-//   })
-// );
 
 //--------------------------------Filtering Accordion--------------------------------------
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
