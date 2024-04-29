@@ -99,7 +99,7 @@ function renderRecipe(recipe){
     let recipeHTML =
         `<div class="recipe">
             <h5>${recipe.acf.title}</h5>
-            <img src="${recipe.acf.image}" alt="${recipe.acf.title}">
+            <img src="${recipe.acf.image.sizes.large}" alt="${recipe.acf.title}">
             <p>${recipe.acf.author}</p>
             <input type="number" id="servings">
             <p>${recipe.acf.description}</p>
