@@ -44,7 +44,7 @@ h4{
 }
 
 /*----------------------------------------------------*/
-.moreBtn{
+.btn{
     cursor: pointer;
     background-color: white;
     font-weight: 700;
@@ -53,7 +53,7 @@ h4{
     letter-spacing: 2.5px;
     height: 3rem;
 }
-.moreBtn:hover{
+.btn:hover{
     background-color: rgb(219, 219, 219);
     transition: 0.3s;
 }
