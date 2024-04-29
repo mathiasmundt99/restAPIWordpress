@@ -99,7 +99,7 @@ function renderRecipe(recipe){
     let recipeHTML =
         `<div class="recipe">
             <h5>${recipe.acf.title}</h5>
-            <img src="${recipe.acf.image}" alt="${recipe.acf.title}">
+            <img src="${recipe.acf.image.sizes.large}" alt="${recipe.acf.title}">
             <p>${recipe.acf.author}</p>
             <input type="number" id="servings">
             <p>${recipe.acf.description}</p>
@@ -130,11 +130,9 @@ var i;
 
 for (i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
+
     this.classList.toggle("active");
 
-    /* Toggle between hiding and showing the active panel */
     var panel = this.nextElementSibling;
     if (panel.style.display === "block") {
       panel.style.display = "none";
