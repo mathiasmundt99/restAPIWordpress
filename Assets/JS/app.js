@@ -99,25 +99,16 @@ function renderRecipe(recipe){
             <h5>${recipe.acf.title}</h5>
             <img src="${recipe.acf.image.sizes.large}" alt="${recipe.acf.title}">
             <p>${recipe.acf.author}</p>
-            <input type="number" id="servings">
+            
             <p>${recipe.acf.description}</p>
-            <p>${recipe.acf.prep_time}</p>
-            <p>${recipe.acf.cook_time}</p>
+            
             <ul class="ingredients" id="${recipe.id}">
             </ul>
             <div class="recipesTags">
                 <!-- Add tags here if needed -->
             </div>
         </div>`; 
-    individualRecipesEl.innerHTML += recipeHTML;
-    Object.values(recipe.acf.ingredients).forEach(ingredient => {
-        if (ingredient != "") {
-            let li = document.createElement("li");
-            let ul = document.getElementById(recipe.id);
-            li.innerHTML = ingredient;
-            ul.appendChild(li);
-        }
-    })
+        individualRecipesEl.innerHTML += recipeHTML;
 }
 
 
@@ -139,3 +130,20 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+
+
+
+//<p>${recipe.acf.prep_time}</p>
+//<p>${recipe.acf.cook_time}</p>
+//<input type="number" id="servings">
+
+//
+//Object.values(recipe.acf.ingredients).forEach(ingredient => {
+//    if (ingredient != "") {
+//        let li = document.createElement("li");
+//        let ul = document.getElementById(recipe.id);
+//        li.innerHTML = ingredient;
+//        ul.appendChild(li);
+//    }
+//})
