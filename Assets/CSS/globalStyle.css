@@ -185,6 +185,7 @@ a{
 
 /*-------------------------------Local nav med cirkler------------------------------*/
 .categoryFEPGrid{
+    margin: 36px 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
