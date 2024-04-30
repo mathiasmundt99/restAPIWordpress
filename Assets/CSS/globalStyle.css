@@ -154,29 +154,33 @@ a{
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr;
 }
-.focusedArticleHero{
-    border: none;
+
+.focusedArticleHero, .topArticleHero, .bottomArticleHero{
+    border: none; 
+    position: relative;
+    text-align: center;
 }
 .focusedArticleHero{
     grid-column: 1 / 2;
     grid-row: 1 /  3;
 }
 .topArticleHero{
-    border: none;
-    margin: none;
     grid-column: 2 / 3;
     grid-row: 1 / 2;
 }
 .bottomArticleHero{
-    border: none;
     grid-column: 2 / 3;
 }
 
-.imgHero{
+.imgHero, .imgHeroBig{
     width: 100%;
 }
-.imgHeroBig{
-    width: 100%;
+
+.recipeTitleOnImg{
+    color: aquamarine;
+    position: absolute;
+    bottom: 6rem;
+    left: 6rem;
 }
 /*-------------------------------------------------------------------------*/
 
@@ -203,6 +207,8 @@ a{
     height: 7.5rem;
     border-radius: 50%;
 }
+
+
 
 /*-----------------------------------------------------------------------*/
 
