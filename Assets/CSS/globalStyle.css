@@ -11,7 +11,7 @@
 }
 
 body{
-    margin: 36px;
+    margin: 4rem 18.75rem;
     padding: 0;
     line-height: 1.5;
 }
@@ -36,10 +36,6 @@ main{
     padding-left: 1rem;
 }
 
-
-h4{
-    text-align: center;
-}
 h3{
     margin: 6px;
 }
@@ -88,7 +84,7 @@ h3{
 a{
     text-decoration: none;
     color: black;
-    margin: 36px 0px;
+    margin: 24px 0px;
 }
 
 
@@ -101,10 +97,11 @@ a{
     cursor: pointer;
     background-color: white;
     font-weight: 700;
-    padding: 16px 24px;
+    padding: 10px 16px;
     border: 2px solid black;
     letter-spacing: 2.5px;
     height: 3rem;
+    display: inline-block;
 }
 .btn:hover{
     background-color: rgb(219, 219, 219);
@@ -129,8 +126,8 @@ a{
     position: absolute;
     top: 50%;
     left: 100%;
-    width: 80vw;
-    height: 2px;
+    width: 50vw;
+    height: 3px;
     background-color: var(--green);
     transform: translateY(-50%);
 }
@@ -188,7 +185,7 @@ a{
     margin: 36px 0px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .categoryFEP, .categoryFEPMoreBtn{
     cursor: pointer;
@@ -206,10 +203,36 @@ a{
     border-radius: 50%;
 }
 
+.arrowRight{
+    color: white;
+    font-size: 36px;
+    left: 50%;
+}
 
 
 /*-----------------------------------------------------------------------*/
-
+/*--------------------------seasonal recipies--------------------------------*/
+.seasonal, .featuredArticles{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+.seasonal img, .featuredArticles img{
+    max-width: 90%;
+}
+.FEP{
+    display: flex;
+    flex-direction: row;
+}
+.tags{
+    display: flex;
+}
+.seasonal h4, .featuredArticles h4{
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin: 6px 0px;
+}
+/*-----------------------------------------------------------------------*/
 
 
 
