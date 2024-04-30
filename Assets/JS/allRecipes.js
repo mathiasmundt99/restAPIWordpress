@@ -52,7 +52,7 @@ function getRecipesByTaxonomies(cooktimeId, dietId) {
     }
     if (dietId) {
         //Jeg ved ikke hvorfor den virker sådan her, men når der sættes & foran diet=${dietID}, så virker det
-        url += (cooktimeId ? '&' : '') + `diet=${dietId}`;
+        url += (cooktimeId ? '&' : '') + `&diet=${dietId}`;
     } 
 
     // Her defineres antal post pr. side 
