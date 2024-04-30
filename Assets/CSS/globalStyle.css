@@ -17,6 +17,7 @@ body{
 }
 main{
     margin: 42px 64px;
+    position: relative;
 }
 
 .container{
@@ -93,11 +94,15 @@ h3{
 a{
     text-decoration: none;
     color: black;
+    margin: 36px 0px;
 }
 
 
 /*------------------------Nav Slut----------------------------*/
-/*----------------------------------------------------*/
+
+
+
+/*------------------------knapper-----------------------*/
 .btn{
     cursor: pointer;
     background-color: white;
@@ -112,22 +117,71 @@ a{
     transition: 0.3s;
 }
 
-.h2Line{
-    position: relative;
+/*-----------------------------------------------------------------------*/
+
+
+
+/*-----------------------------h2 og linjer der til-----------------------------*/
+
+.heroFEP,
+.seasonal,
+.featuredSrticles {
+  /* position: relative; */
 }
 
-.h2Line:after{
-    content:" ";
-    height: 3px;
-    background: var(--green);
-    display: block;
+.h2Line {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+}
+
+.h2Line::after {
+    content: '';
     position: absolute;
     top: 50%;
-    right: 0;
-    width: 89%;
+    left: 100%;
+    width: 80vw;
+    height: 2px;
+    background-color: var(--green);
+    transform: translateY(-50%);
 }
 
+/*-----------------------------------------------------------------------*/
 
+/*------------------------------grid i hero, FEP til opskrifter---------------------------------*/
+.heroRecCont{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.focusedArticleHero{
+    border: none;
+}
+.focusedArticleHero{
+    grid-column: 1 / 2;
+    grid-row: 1 /  3;
+}
+.topArticleHero{
+    border: none;
+    margin: none;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+.bottomArticleHero{
+    border: none;
+    grid-column: 2 / 3;
+}
+
+.imgHero{
+    width: 100%;
+}
+.imgHeroBig{
+    width: 100%;
+}
+/*-------------------------------------------------------------------------*/
+
+
+/*-------------------------------Local nav med cirkler------------------------------*/
 .categoryFEPGrid{
     display: flex;
     flex-direction: row;
@@ -137,18 +191,26 @@ a{
     display: flex;
     flex-direction: column;
 }
+.categoryFEPMoreBtn{
+    background-color: #92ca5b;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+}
+ 
 .categoryFEP img{
     width: 7.5rem;
     height: 7.5rem;
     border-radius: 50%;
 }
-.imgSqrWrapper{
-    
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-}
 
+/*-----------------------------------------------------------------------*/
+
+
+
+
+
+/*-----------------Filtering & accordion------------------------------------*/
 
 .filterContainer{
    width: 13%;
@@ -204,5 +266,5 @@ a{
     content: "\2796";
 }
 
-
+/*-----------------------------------------------------------------------*/
   

@@ -6,20 +6,25 @@
     <title>Wordpress</title>
     <link rel="stylesheet" href="../Assets/CSS/globalStyle.css" />
     <script src="../Assets/JS/app.js" defer></script>
+    <script src="../Assets/JS/allRecipes.js" defer></script>
   </head>
   <body>
     <header>
       <nav>
         <div class="navBtn">
-          <button >+ Add a Recipe</button>
+          <button>+ Add a Recipe</button>
           <div>
-          <button >Log In</button>
-          <button id="signUpBtn">Sign Up</button>
+            <button>Log In</button>
+            <button id="signUpBtn">Sign Up</button>
           </div>
         </div>
         <div class="navNav">
-          <img class="logo" src="../Assets/Img/foodista_logo_231x53.png" alt="Foodista webside logo">
-          <ul style="list-style-type: none;">
+          <img
+            class="logo"
+            src="../Assets/Img/foodista_logo_231x53.png"
+            alt="Foodista webside logo"
+          />
+          <ul style="list-style-type: none">
             <li class="activeNav"><a href="./index.html">Home</a></li>
             <li><a href="./index.html">News</a></li>
             <li class="activeNav"><a href="./allRecipes.html">Recipes</a></li>
@@ -29,3 +34,25 @@
         </div>
       </nav>
     </header>
+    <main>
+      <div class="container">
+        <h1>All recipes</h1>
+
+        <!-- Alternativ måde at gøre det på. Burde nok bruge JS, men vi gik i stå -->
+        <div class="buttons">
+          <button onclick="addCookTime(43)">Fast Cooktime</button>
+          <button onclick="addCookTime(44)">Medium Cooktime</button>
+          <button onclick="addCookTime(45)">Slow Cooktime</button>
+          <button onclick="addDiet(36)">Vegan</button>
+          <button onclick="addDiet(7)">Keto</button>
+          <button onclick="addDiet(6)">Vegetatian</button>
+          <button onclick="addDiet(5)">Gluten free</button>
+          <button onclick="addDiet(35)">Diabetic friendly</button>
+          <button onclick="clearFilters()">Clear</button>
+        </div>
+
+        <div class="individualRecipes"></div>
+      </div>
+    </main>
+  </body>
+</html>
