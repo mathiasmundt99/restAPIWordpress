@@ -45,6 +45,9 @@ article{
 h4{
     text-align: center;
 }
+h3{
+    margin: 6px;
+}
 
 
 /*-------------------------Nav---------------------------*/
@@ -111,20 +114,9 @@ a{
 
 .h2Line{
     position: relative;
-  }
-  
-  /* .h2Line:before{
-    content:" ";
-    height: 2px;
-    width: 130px;
-    background: red;
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 0;
-  } */
-  
-  .h2Line:after{
+}
+
+.h2Line:after{
     content:" ";
     height: 3px;
     background: var(--green);
@@ -133,7 +125,7 @@ a{
     top: 50%;
     right: 0;
     width: 89%;
-  }
+}
 
 
 .categoryFEPGrid{
@@ -158,25 +150,46 @@ a{
 }
 
 
+.filterContainer{
+   width: 13%;
+   margin-top: 12px;
+   display: flex;
+   flex-direction: column;
+   gap: 3px;
+}
+
+.searchFilter{
+    background: #fff;
+    border: 2px solid black;
+    line-height: 24px;
+    padding: 14px 16px;
+    width: 100%;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    box-shadow: 4px 4px 0 var(--green);
+    margin-bottom: 36px;
+}
+
 .accordion {
     cursor: pointer;
     background-color: white;
     font-weight: 700;
-    padding: 16px 24px;
+    padding: 16px;
     border: 2px solid black;
     letter-spacing: 2.5px;
     text-align: left;
     height: 3rem;
+    width: 100%;
 }
 .active, .accordion:hover {
-    background-color: rgb(219, 219, 219);
+    
     transition: 0.3s;
 }
 .accordionFilterBtns{
     padding: 0px 18px;
-    background-color: white;
     display: none;
     overflow: hidden;
+    border: 1px solid grey;
 }
 
 .accordion:after {
