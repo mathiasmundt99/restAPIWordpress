@@ -21,7 +21,7 @@ const individualRecipesEl = document.querySelector('.individualRecipesSpring');
 const individualArticlesEl = document.querySelector('.individualArticles');
 
 
-// Måske en if statement på undersiderne
+// Get token bruges til at få adgang til at se private indhold fra API'et-
 function getToken(){
     const loginInfo = {
         username: 'apiAdmin',
@@ -43,7 +43,7 @@ function getToken(){
     .catch(err => console.log('Error: ', err))
 }
 
-// De Begge nedestående funktioner henter både recipes & articles... Den burde kun hente recipes, og nedestående burde kun hente articles
+// Funktion til at hente Priavte Recipes fra Wordpress
 function getPrivateRecipes(){
     fetch(baseUrl + `posts?status=private&categories=${recipeId}`, {
         headers: {
@@ -58,7 +58,7 @@ function getPrivateRecipes(){
     .catch(err => console.log('Error: ', err))
 }
 
-
+//Funktion til at hente Priavte Articles fra Wordpress
 function getPrivateArticle(){
     fetch(baseUrl + `posts?status=private&categories=${articleId}`, {
         headers: {
@@ -75,7 +75,9 @@ function getPrivateArticle(){
     .catch(err => console.log('Error: ', err))
 }
 
+//Funktion til at render Priavte Articles fra Wordpress
 function renderArticle(article){
+    // Her erklæres articleHTML
     let articleHTML =
         `<div class='articleDiv'>
         <div class ='imgDiv'>
@@ -83,24 +85,11 @@ function renderArticle(article){
         </div>
             <h4>${article.acf.title}</h4>
         </div>`; 
+        // Her sætter vi individualArticlesEl til at være = articleHTML
         individualArticlesEl.innerHTML += articleHTML;
 }
-        
- function getPrivateRecipes(){
-    fetch(baseUrl + `posts?status=private&categories=${recipeId}`, {
-        headers: {
-            Authorization: "Bearer " + sessionStorage.getItem('myToken')
-        }
-    })
-    .then(res => res.json())
-    .then(recipes => {
-        console.log('all recipes', recipes);
-        recipes.forEach(recipe =>{renderRecipe(recipe)});
-    })
-    .catch(err => console.log('Error: ', err))
-}
 
-
+// Denne funktion henter de 4 første recipes fra wordpress. Idielt skulle den hente 4 bestemte recipes
 function getSpringRecipes(){
     fetch(baseUrl + `posts?status=private&categories=${recipeId}`, {
         headers: {
@@ -120,6 +109,7 @@ function getSpringRecipes(){
     .catch(err => console.log('Error: ', err))
 }
 
+// Funktion til at render de 4 recipes
 function renderSpringRecipes(recipe){
     let recepieSpringHTML =
         `<div class='recipeDiv'>
@@ -131,7 +121,7 @@ function renderSpringRecipes(recipe){
         individualRecipesEl.innerHTML += recepieSpringHTML;
 }
         
-// Noget rod, men vi løb tør fra tid, og ville vise hvordan 4 artikler kunne se ud sammen
+// Noget rod, men vi løb tør for tid, og ville vise hvordan 4 artikler kunne se ud sammen
  getToken().then(() => getPrivateArticle());
  getPrivateArticle();
  getPrivateArticle();
