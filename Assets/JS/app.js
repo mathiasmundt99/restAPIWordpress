@@ -79,7 +79,7 @@ function renderArticle(article){
         <div class ='imgDiv'>
             <img class="imgHeroBig" src="${article.acf.image.sizes.large}" alt="">
         </div>
-            <h4>${article.acf.title}</h4>
+            <h5>${article.acf.title}</h5>
         </div>`; 
         // Her sætter vi individualArticlesEl til at være = articleHTML
         individualArticlesEl.innerHTML += articleHTML;
@@ -109,8 +109,8 @@ function getSpringRecipes(){
   function renderArticle(article){
       let articleHTML =
           `<div class="recipe">
-              <h5>${article.acf.title}</h5>
               <img class="imgHeroBig" src="${article.acf.image.sizes.medium}" alt="">
+              <h3>${article.acf.title}</h3>
           </div>`; 
           individualArticlesEl.innerHTML += articleHTML;
   }
@@ -123,7 +123,7 @@ function renderSpringRecipes(recipe){
         <div class ='imgDiv'>
             <img class="imgHeroBig" src="${recipe.acf.image.sizes.large}" alt="">
         </div>
-            <h4>${recipe.acf.title}</h4>
+            <h3>${recipe.acf.title}</h3>
         </div>
         </a>`; 
         individualRecipesEl.innerHTML += recepieSpringHTML;
@@ -209,7 +209,7 @@ function renderTopRecipe(recipe){
     let topHTML =
     `
     <img class="imgHeroBig" src="${recipe.acf.image.sizes.large}" alt="">
-    <a href="./chosenRecipe.html"><h3 class="recipeTitleOnImg"> ${recipe.acf.title}</h3></a>
+    <a href="./chosenRecipe.html"><h4 class="recipeTitleOnImg"> ${recipe.acf.title}</h4></a>
     `; 
     // Her sætter vi individualArticlesEl til at være = articleHTML
     topArticleHeroEl.innerHTML += topHTML;
@@ -232,9 +232,7 @@ function renderBottomRecipe(article){
 // Noget rod, men vi løb tør for tid, og ville vise hvordan 4 artikler kunne se ud sammen
  getToken()
  .then(() => getPrivateArticle());
- getPrivateArticle();
- getPrivateArticle();
- getPrivateArticle();
+ 
  getSpringRecipes();
  getPrivateRecipes();
  getHeroRecipe();
