@@ -106,6 +106,7 @@ function getSpringRecipes(){
 }
 
 
+// Funktion til at render Article 
   function renderArticle(article){
       let articleHTML =
           `<div class="recipe">
@@ -129,6 +130,7 @@ function renderSpringRecipes(recipe){
         individualRecipesEl.innerHTML += recepieSpringHTML;
 }
 
+// Nedestående funktioner fetcher artikler/opskrifter og render dem
 function getHeroRecipe(){
     fetch(baseUrl + `posts?status=private&categories=${recipeId}`, {
         headers: {

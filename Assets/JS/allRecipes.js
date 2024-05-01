@@ -23,7 +23,7 @@ function addDiet(id) {
     fetchRecipes(); 
 }
 
-// Function to fetch and render recipes based on selected cooktimeId and dietId
+// Function til at fetch og render recipes uf fra selected cooktimeId og dietId
 function fetchRecipes() {
     let individualRecipesEl = document.querySelector('.individualRecipes');
     individualRecipesEl.innerHTML = '';
@@ -100,19 +100,8 @@ function renderIndividualRecipe(recipe) {
     </a>
 </div>
     `;
-
     // Her sætter vi vores innerHTML til at være = reipeHTML
     individualRecipesEl.innerHTML += recipeHTML;
-
-    // Tilføj ingredients til listen
-    // Object.values(recipe.acf.ingredients).forEach(ingredient => {
-    //     if (ingredient !== "") {
-    //         const li = document.createElement("li");
-    //         const ul = document.getElementById(recipe.id);
-    //         li.textContent = ingredient;
-    //         ul.appendChild(li);
-    //     }
-    // });
 }
 
 // Her er en hjælpe funktion som bruges til at generer vores ingredienser
