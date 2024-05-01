@@ -304,16 +304,49 @@ a{
   .caleRecipe img{
     max-width: 500%;
   }
-  .caleRecipe h1,h3{
+  .caleRecipe h1,h3, h4{
     grid-column: 1 / -1;
     margin: 0.2rem;
   }
 
-  .prepTime{
+  .servingsCon{
     display: flex;
     justify-content: start;
+  }
+
+  .servingsCon img{
+    width: 2rem;
+    margin: 1rem;
+  }
+
+  .servings{
+    display: flex;
+    flex-direction: column;
+   margin: 0;
+  }
+  
+  .cookTime{
+    display: flex;
     gap: 2rem;
   }
-  .prepTime img{
+
+  .cookTime img{
     width: 2rem;
   }
+
+  .servings input{
+    width: 20%;
+    margin: 1rem;
+  }
+
+  .cook{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .containerPrep{
+    display: flex;
+  }
+
+figure{
+text-wrap: nowrap;}
