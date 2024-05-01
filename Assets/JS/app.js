@@ -1,3 +1,4 @@
+// Variabler erklerert 
 const baseUrl ='https://mundt.gg/wp-json/wp/v2/';
 
 const recipeId = 3;
@@ -6,8 +7,9 @@ const articleId = 46;
 const fastCooktimeId = 43;
 const mediumCooktimeId = 44;
 const slowCooktimeId = 45;
+//------------------------------------------------------
 
-// Skulle have været brugt til filtrering
+// Skulle have været brugt til filtrering med en JS funktion. Men vi gik med at lave onClick på knapperne i HTML
 // const diabeticFriendlyId = 35;
 // const glutenFreeId = 5;
 // const ketoId = 7;
@@ -17,6 +19,7 @@ const slowCooktimeId = 45;
 const containerEL = document.querySelector('.container');
 const individualRecipesEl = document.querySelector('.individualRecipes');
 const individualArticlesEl = document.querySelector('.individualArticles');
+
 
 
 // Måske en if statement på undersiderne
@@ -45,7 +48,7 @@ getToken().then(() => getPrivateRecipes());
 
 // De Begge nedestående funktioner henter både recipes & articles... Den burde kun hente recipes, og nedestående burde kun hente articles
 function getPrivateRecipes(){
-    fetch(baseUrl + `posts?status=private&categegories=${recipeId}`, {
+    fetch(baseUrl + `posts?status=private&categories=${recipeId}`, {
         headers: {
             Authorization: "Bearer " + sessionStorage.getItem('myToken')
         }
@@ -60,26 +63,32 @@ function getPrivateRecipes(){
 
 
 function getPrivateArticle(){
-    fetch(baseUrl + `posts?status=private&categegories=${articleId}`, {
+    fetch(baseUrl + `posts?status=private&categories=${articleId}`, {
         headers: {
             Authorization: "Bearer " + sessionStorage.getItem('myToken')
         }
     })
     .then(res => res.json())
     .then(articles => {
-        console.log('all articles', articles);
-        articles.forEach(article =>{renderArticle(article)});
+        console.log('Fetched articles:', articles);
+        articles.forEach(article => {
+            renderArticle(article);
+        });
     })
     .catch(err => console.log('Error: ', err))
 }
 
-  function renderArticle(article){
-      let articleHTML =
-          `<div class="recipe">
-              <h5>${article.acf.title}</h5>
-          </div>`; 
-          individualArticlesEl.innerHTML += articleHTML;
-  }
+function renderArticle(article){
+    let articleHTML =
+        `<div>
+        <div class ='imgDiv'>
+            <img class="imgHeroBig" src="${article.acf.image.sizes.medium}" alt="">
+        </div>
+            <h4>${article.acf.title}</h4>
+        </div>`; 
+        individualArticlesEl.innerHTML += articleHTML;
+}
+        
 
  getToken().then(() => getPrivateArticle());
 

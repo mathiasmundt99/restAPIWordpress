@@ -266,10 +266,20 @@ footer{
 .seasonal img, .featuredArticles img{
     max-width: 90%;
 }
-.FEP{
+.FEP, .individualArticles{
     display: flex;
     flex-direction: row;
 }
+
+.FEP img{
+    max-width: 90%;
+    height: auto;
+}
+
+.FEP .imgDiv{
+    
+}
+
 .tags{
     display: flex;
 }
@@ -340,4 +350,3 @@ footer{
 }
 
 /*-----------------------------------------------------------------------*/
-  
