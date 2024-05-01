@@ -93,7 +93,10 @@ function renderIndividualRecipe(recipe) {
     <a href="${recipeDetailUrl}" target="_blank">
         <img src="${recipe.acf.image.sizes.large}" alt="${recipe.acf.title}">
         <h5>${recipe.acf.title}</h5>
-        
+        <div class="FEPCookPrepTime">
+          <p>Prep Time: ${recipe.acf.prep_time} min</p>
+          <p>Cook Time: ${recipe.acf.cook_time} min</p>
+        </div>
     </a>
 </div>
     `;
@@ -123,3 +126,7 @@ function generateIngredientsList(ingredients) {
     });
     return ingredientsHTML;
 }
+
+
+
+

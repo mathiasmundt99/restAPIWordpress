@@ -34,16 +34,10 @@
         </div>
       </nav>
     </header>
-    <main>
-      <!-- Alternativ måde at gøre det på. Burde nok bruge JS, men vi gik i stå. Det her burde være toggle -->
-      <div class="buttons">
-      
-        
-      </div>
-
-      <h1>All recipes</h1>
+    <main class="allRecipesMain">
      
-      <div class="filterContainer">
+      <div class="mainContent">
+      <aside class="filterContainer">
         <div class="searchFilterContainer">
           <input
             type="search"
@@ -113,9 +107,13 @@
           </div>
         </div>
         <button  class="btn" onclick="clearFilters()">Clear Filters</button>
-      </div> 
+      </aside>
+      <div>
+      <h1>All recipes</h1>
       <div class="container">
         <div class="individualRecipes"></div>
+      </div>
+      </div>
       </div>
 
     </main>

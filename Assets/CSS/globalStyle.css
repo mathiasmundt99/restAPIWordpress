@@ -24,6 +24,7 @@ main{
 .container{
     margin: 1rem auto;
     padding: 1rem;
+    
 }
 
 
@@ -36,8 +37,16 @@ main{
     padding-left: 1rem;
 }
 
+
+h1{
+    margin: 24px 48px;
+}
 h3{
     margin: 6px;
+}
+h5{
+    margin: 4px 0px;
+    font-size: 16px
 }
 header{
     margin: 42px 64px;
@@ -101,6 +110,7 @@ footer{
     background-color:#41443F ;
     color: white;
     padding: 24px;
+    
 }
 .footerLinks{
     display: flex;
@@ -278,16 +288,50 @@ footer{
     letter-spacing: 2px;
     margin: 6px 0px;
 }
+
+
 /*-----------------------------------------------------------------------*/
 
 
 /*-----------------------------ALL RECIPES STYLING-------------------------*/
-/*-------------------
+
+
+.FEPCookPrepTime{
+    color: grey;
+    display: flex;
+    gap: 2rem;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.individualRecipes{
+    /* display: flex;
+    flex-direction: column; */
+    display: grid;
+    grid-template-columns: repeat(2, 40rem);
+}
+.recipe{
+    max-width: 100%;
+}
+.mainContent{
+    display: flex;
+    position: relative;
+}
+
+.allRecipesMain{
+    margin: 150px;
+}
+
+
+
+
+/*-------------------------------------------------------------------------*/
 
 /*-----------------Filtering & accordion------------------------------------*/
 
 .filterContainer{
-   width: 18%;
+   
    margin-top: 12px;
    display: flex;
    flex-direction: column;
