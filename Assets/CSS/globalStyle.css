@@ -350,3 +350,28 @@ a{
 
 figure{
 text-wrap: nowrap;}
+
+.directions ul{
+    list-style-type: decimal;
+    
+}
+.directions li {
+    position:relative;
+    font-size:16px;
+    gap: 2rem   ;
+    }
+ .directions li:before {
+     content: "";
+     position:relative;
+     left:-2.2rem;
+     background-color:var(--green);
+     z-index:-1;
+     display:inline-block;
+     width:2rem;
+     height:2rem;
+
+ }
+::marker{
+font-size: 2rem;
+color: #fff;
+}
