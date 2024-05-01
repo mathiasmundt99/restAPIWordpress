@@ -91,8 +91,9 @@ function renderIndividualRecipe(recipe) {
     const recipeHTML = `
     <div class="recipe">
     <a href="${recipeDetailUrl}" target="_blank">
-        <h5>${recipe.acf.title}</h5>
         <img src="${recipe.acf.image.sizes.large}" alt="${recipe.acf.title}">
+        <h5>${recipe.acf.title}</h5>
+        
     </a>
 </div>
     `;
