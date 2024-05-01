@@ -92,6 +92,56 @@ function renderArticle(article){
 
  getToken().then(() => getPrivateArticle());
 
+
+ function getPrivateRecipes(){
+    fetch(baseUrl + `posts?status=private&categories=${recipeId}`, {
+        headers: {
+            Authorization: "Bearer " + sessionStorage.getItem('myToken')
+        }
+    })
+    .then(res => res.json())
+    .then(recipes => {
+        console.log('all recipes', recipes);
+        recipes.forEach(recipe =>{renderRecipe(recipe)});
+    })
+    .catch(err => console.log('Error: ', err))
+}
+
+
+function getSprinRecipes(){
+    fetch(baseUrl + `posts?status=private&categories=${recipeId}`, {
+        headers: {
+            Authorization: "Bearer " + sessionStorage.getItem('myToken')
+        }
+    })
+    .then(res => res.json())
+    .then(recipes => {
+        console.log('Fetched recepies:', recipes);
+        recipes.forEach(recipe => {
+            renderArticle(recipe);
+        });
+    })
+    .catch(err => console.log('Error: ', err))
+}
+
+function renderSpringRecipes(recipe){
+    let articleHTML =
+        `<div>
+        <div class ='imgDiv'>
+            <img class="imgHeroBig" src="${recipe.acf.image.sizes.medium}" alt="">
+        </div>
+            <h4>${recipe.acf.title}</h4>
+        </div>`; 
+        individualRecipesEl.innerHTML += articleHTML;
+}
+        
+
+ getToken().then(() => getPrivateArticle());
+
+
+
+
+
 //--------------------------------Filtering Accordion--------------------------------------
 
 var acc = document.getElementsByClassName("accordion");
