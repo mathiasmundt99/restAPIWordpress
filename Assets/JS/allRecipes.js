@@ -80,16 +80,21 @@ function getRecipesByTaxonomies(cooktimeId, dietId) {
     });
 }
 
-// Function to render an individual recipe
+// Function til at render recipe
 function renderIndividualRecipe(recipe) {
     const individualRecipesEl = document.querySelector('.individualRecipes');
 
+    // Forsøgt at sende recipe ID sammen med chosenRecipe ved a href
+    const recipeDetailUrl = `chosenRecipe.html?id=${recipe.id}`;
+
     // Her opsættes vores HTML som skal bruges længere nede i koden funktionen.
     const recipeHTML = `
-        <div class="recipe">
-            <h5>${recipe.acf.title}</h5>
-            <img src="${recipe.acf.image.sizes.large}" alt="${recipe.acf.title}">
-        </div>
+    <div class="recipe">
+    <a href="${recipeDetailUrl}" target="_blank">
+        <h5>${recipe.acf.title}</h5>
+        <img src="${recipe.acf.image.sizes.large}" alt="${recipe.acf.title}">
+    </a>
+</div>
     `;
 
     // Her sætter vi vores innerHTML til at være = reipeHTML
