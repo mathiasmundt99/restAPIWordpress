@@ -25,7 +25,7 @@
             alt="Foodista webside logo"
             />
           <ul style="list-style-type: none">
-            <li class="activeNav"><a href="./index.html">Home</a></li>
+            <li><a href="./index.html">Home</a></li>
             <li><a href="./index.html">News</a></li>
             <li class="activeNav"><a href="./allRecipes.html">Recipes</a></li>
             <li><a href="./healt.html">Health & Diet</a></li>
@@ -34,27 +34,10 @@
         </div>
       </nav>
     </header>
-    <main>
-      <!-- Alternativ måde at gøre det på. Burde nok bruge JS, men vi gik i stå. Det her burde være toggle -->
-      <div class="buttons">
-        <button  class="btn" onclick="addCookTime(43)">Fast Cooktime</button>
-        <button  class="btn" onclick="addCookTime(44)">Medium Cooktime</button>
-        <button  class="btn" onclick="addCookTime(45)">Slow Cooktime</button>
-        <button  class="btn" onclick="addDiet(36)">Vegan</button>
-        <button  class="btn" onclick="addDiet(7)">Keto</button>
-        <button  class="btn" onclick="addDiet(6)">Vegetarian</button>
-        <button  class="btn" onclick="addDiet(5)">Gluten free</button>
-        <button  class="btn" onclick="addDiet(35)">Diabetic friendly</button>
-        <button  class="btn" onclick="clearFilters()">Clear</button>
-      </div>
-      <div class="container">
-        <h1>All recipes</h1>
-
-
-        <div class="individualRecipes"></div>
-      </div>
-
-      <div class="filterContainer">
+    <main class="allRecipesMain">
+     
+      <div class="mainContent">
+      <aside class="filterContainer">
         <div class="searchFilterContainer">
           <input
             type="search"
@@ -64,6 +47,15 @@
           />
         </div>
         <h3>FILTER RECIPES</h3>
+        <div class="accordionContainer">
+          <button class="accordion">BY COOK TIME</button>
+          <div class="accordionFilterBtns">
+            <div><input type="checkbox" onclick="addCookTime(43)"/>Fast</div>
+            <div><input type="checkbox" onclick="addCookTime(44)"/>Medium</div>
+            <div><input type="checkbox" onclick="addCookTime(45)"/>Slow</div>
+            <div><input type="checkbox" />Self cooking</div>
+          </div>
+        </div>
         <div class="accordionContainer">
           <button class="accordion">BY COURSE</button>
           <div class="accordionFilterBtns">
@@ -107,13 +99,23 @@
           <div class="accordionFilterBtns">
             <div><input type="checkbox" />Dairy free</div>
             <div><input type="checkbox" />Egg free</div>
-            <div><input type="checkbox" />Gluten free</div>
-            <div><input type="checkbox" />Vegan</div>
-            <div><input type="checkbox" />Vegitarian</div>
-            <div><input type="checkbox" />Diabetes friendly</div>
+            <div><input type="checkbox" onclick="addDiet(5)"/>Gluten free</div>
+            <div><input type="checkbox" onclick="addDiet(36)"/>Vegan</div>
+            <div><input type="checkbox" onclick="addDiet(6)"/>Vegitarian</div>
+            <div><input type="checkbox" onclick="addDiet(35)"/>Diabetic friendly</div>
+            <div><input type="checkbox" onclick="addDiet(7)">Keto</div>
           </div>
         </div>
+        <button  class="btn" onclick="clearFilters()">Clear Filters</button>
+      </aside>
+      <div>
+      <h1>All recipes</h1>
+      <div class="container">
+        <div class="individualRecipes"></div>
       </div>
+      </div>
+      </div>
+
     </main>
     <footer>
       <div class="footerLinks">

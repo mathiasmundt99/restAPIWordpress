@@ -105,6 +105,16 @@ function getSpringRecipes(){
     .catch(err => console.log('Error: ', err))
 }
 
+
+  function renderArticle(article){
+      let articleHTML =
+          `<div class="recipe">
+              <h5>${article.acf.title}</h5>
+              <img class="imgHeroBig" src="${article.acf.image.sizes.medium}" alt="">
+          </div>`; 
+          individualArticlesEl.innerHTML += articleHTML;
+  }
+
 // Funktion til at render de 4 recipes
 function renderSpringRecipes(recipe){
     let recepieSpringHTML =
@@ -216,6 +226,7 @@ function renderBottomRecipe(article){
     // Her sætter vi individualArticlesEl til at være = articleHTML
     bottomArticleHeroEl.innerHTML += bottomHTML;
 }
+
 
 
 // Noget rod, men vi løb tør for tid, og ville vise hvordan 4 artikler kunne se ud sammen
