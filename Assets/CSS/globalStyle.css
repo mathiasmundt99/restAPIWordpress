@@ -294,4 +294,27 @@ a{
 }
 
 /*-----------------------------------------------------------------------*/
-  
+  /* Cale */
+  .caleRecipe{
+    display: grid;
+    gap: 0 2rem;
+    margin: 24px 0px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .caleRecipe img{
+    max-width: 500%;
+  }
+  .caleRecipe h1,h3{
+    grid-column: 1 / -1;
+    margin: 0.2rem;
+  }
+
+  .prepTime{
+    display: flex;
+    justify-content: start;
+    gap: 2rem;
+  }
+  .prepTime img{
+    width: 2rem;
+  }
