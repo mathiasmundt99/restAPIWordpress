@@ -240,7 +240,7 @@ a{
 /*-----------------Filtering & accordion------------------------------------*/
 
 .filterContainer{
-   width: 13%;
+   width: 18%;
    margin-top: 12px;
    display: flex;
    flex-direction: column;
@@ -263,7 +263,7 @@ a{
     cursor: pointer;
     background-color: white;
     font-weight: 700;
-    padding: 16px;
+    padding: 12px 12px;
     border: 2px solid black;
     letter-spacing: 2.5px;
     text-align: left;
