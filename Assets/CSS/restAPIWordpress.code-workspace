@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../../../Desktop"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "restAPIWordpress"
+	}
+}
