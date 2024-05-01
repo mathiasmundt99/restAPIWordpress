@@ -49,10 +49,7 @@
       </div>
 
       <h1>All recipes</h1>
-      <div class="container">
-        <div class="individualRecipes"></div>
-      </div>
-
+     
       <div class="filterContainer">
         <div class="searchFilterContainer">
           <input
@@ -63,6 +60,15 @@
           />
         </div>
         <h3>FILTER RECIPES</h3>
+        <div class="accordionContainer">
+          <button class="accordion">BY COOK TIME</button>
+          <div class="accordionFilterBtns">
+            <div><input type="checkbox" onclick="addCookTime(45)"/>Fast</div>
+            <div><input type="checkbox" onclick="addCookTime(44)"/>Medium</div>
+            <div><input type="checkbox" />Slow</div>
+            <div><input type="checkbox" />Self cooking</div>
+          </div>
+        </div>
         <div class="accordionContainer">
           <button class="accordion">BY COURSE</button>
           <div class="accordionFilterBtns">
@@ -110,9 +116,14 @@
             <div><input type="checkbox" />Vegan</div>
             <div><input type="checkbox" />Vegitarian</div>
             <div><input type="checkbox" />Diabetes friendly</div>
+            <div><input type="checkbox">Keto</div>
           </div>
         </div>
+      </div> 
+      <div class="container">
+        <div class="individualRecipes"></div>
       </div>
+
     </main>
     <footer>
       <div class="footerLinks">

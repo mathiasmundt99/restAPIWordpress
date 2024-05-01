@@ -11,11 +11,11 @@ function addCookTime(id) {
 }
 
 // Her kaldes en clearFilter, som sætter begge Id'er til null
-function clearFilters(id) {
-    cooktimeId = null;
-    dietId = id;
-    fetchRecipes(); 
-}
+// function clearFilters(id) {
+//     cooktimeId = null;
+//     dietId = id;
+//     fetchRecipes(); 
+// }
 
 // Samme som addCookTime
 function addDiet(id) {

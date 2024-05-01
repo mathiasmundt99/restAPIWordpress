@@ -45,7 +45,7 @@ getToken().then(() => getPrivateRecipes());
 
 // De Begge nedestående funktioner henter både recipes & articles... Den burde kun hente recipes, og nedestående burde kun hente articles
 function getPrivateRecipes(){
-    fetch(baseUrl + `posts?status=private&categegories=${recipeId}`, {
+    fetch(baseUrl + `posts?status=private&categories=${recipeId}`, {
         headers: {
             Authorization: "Bearer " + sessionStorage.getItem('myToken')
         }
@@ -60,7 +60,7 @@ function getPrivateRecipes(){
 
 
 function getPrivateArticle(){
-    fetch(baseUrl + `posts?status=private&categegories=${articleId}`, {
+    fetch(baseUrl + `posts?status=private&categories=${articleId}`, {
         headers: {
             Authorization: "Bearer " + sessionStorage.getItem('myToken')
         }
@@ -77,6 +77,7 @@ function getPrivateArticle(){
       let articleHTML =
           `<div class="recipe">
               <h5>${article.acf.title}</h5>
+              <img class="imgHeroBig" src="${article.acf.image.sizes.medium}" alt="">
           </div>`; 
           individualArticlesEl.innerHTML += articleHTML;
   }
