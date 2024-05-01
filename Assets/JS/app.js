@@ -7,14 +7,10 @@ const articleId = 46;
 const fastCooktimeId = 43;
 const mediumCooktimeId = 44;
 const slowCooktimeId = 45;
-//------------------------------------------------------
 
-// Skulle have været brugt til filtrering med en JS funktion. Men vi gik med at lave onClick på knapperne i HTML
-// const diabeticFriendlyId = 35;
-// const glutenFreeId = 5;
-// const ketoId = 7;
-// const veganId = 36;
-// const vegetarianId = 6;
+const focusedArticleHeroEl = document.querySelector('.focusedArticleHero');
+const topArticleHeroEl = document.querySelector('.topArticleHero');
+const bottomArticleHeroEl = document.querySelector('.bottomArticleHero');
 
 const containerEL = document.querySelector('.container');
 const individualRecipesEl = document.querySelector('.individualRecipesSpring');
@@ -113,21 +109,127 @@ function getSpringRecipes(){
 function renderSpringRecipes(recipe){
     let recepieSpringHTML =
         `<div class='recipeDiv'>
+        <a href="chosenRecipe.html">
         <div class ='imgDiv'>
             <img class="imgHeroBig" src="${recipe.acf.image.sizes.large}" alt="">
         </div>
             <h4>${recipe.acf.title}</h4>
-        </div>`; 
+        </div>
+        </a>`; 
         individualRecipesEl.innerHTML += recepieSpringHTML;
 }
-        
+
+function getHeroRecipe(){
+    fetch(baseUrl + `posts?status=private&categories=${recipeId}`, {
+        headers: {
+            Authorization: "Bearer " + sessionStorage.getItem('myToken')
+        }
+    })
+    .then(res => res.json())
+    .then(recipes => {
+        console.log('Fetched recipes:', recipes);
+
+        // Check if there are at least 3 recipes in the array
+        if (recipes.length >= 3) {
+            const firstRecipe = recipes[1]; // Get the third recipe (index 2)
+
+            // Render the third recipe
+            renderHeroRecipe(firstRecipe);
+        } else {
+            console.log('There are not enough recipes to retrieve the third one.');
+        }
+    })
+    .catch(err => console.log('Error: ', err))
+}
+
+function getTopArticleHero(){
+    fetch(baseUrl + `posts?status=private&categories=${recipeId}`, {
+        headers: {
+            Authorization: "Bearer " + sessionStorage.getItem('myToken')
+        }
+    })
+    .then(res => res.json())
+    .then(recipes => {
+        console.log('Fetched recipes:', recipes);
+
+        // Check if there are at least 3 recipes in the array
+        if (recipes.length >= 3) {
+            const secondRecipe = recipes[1]; // Get the third recipe (index 2)
+
+            // Render the third recipe
+            renderTopRecipe(secondRecipe);
+        } else {
+            console.log('There are not enough recipes to retrieve the third one.');
+        }
+    })
+    .catch(err => console.log('Error: ', err))
+}
+
+function getBottomArticleHero(){
+    fetch(baseUrl + `posts?status=private&categories=${articleId}`, {
+        headers: {
+            Authorization: "Bearer " + sessionStorage.getItem('myToken')
+        }
+    })
+    .then(res => res.json())
+    .then(articles => {
+        console.log('Pøls:', articles);
+
+        if (articles.length >= 1) {
+            const firstArticle = articles[0]; 
+
+            renderBottomRecipe(firstArticle);
+        } else {
+            console.log('Error');
+        }
+    })
+    .catch(err => console.log('Error: ', err))
+}
+
+function renderHeroRecipe(recipe){
+    let heroHTML =
+    `
+    <img class="imgHeroBig" src="${recipe.acf.image.sizes.large}" alt="">
+    <a href="./chosenRecipe.html"><h3 class="recipeTitleOnImg"> Bottom Left</h3></a>
+    `; 
+    // Her sætter vi individualArticlesEl til at være = articleHTML
+    renderHeroRecipe.innerHTML += heroHTML;
+}
+
+function renderTopRecipe(recipe){
+    let topHTML =
+    `
+    <img class="imgHeroBig" src="${recipe.acf.image.sizes.large}" alt="">
+    <a href="./chosenRecipe.html"><h3 class="recipeTitleOnImg"> ${recipe.acf.title}</h3></a>
+    `; 
+    // Her sætter vi individualArticlesEl til at være = articleHTML
+    topArticleHeroEl.innerHTML += topHTML;
+}
+
+function renderBottomRecipe(article){
+    let bottomHTML =
+    `
+    <iframe width="420" height="315"
+    src="${article.acf.video}">
+    </iframe>
+    <a href="./chosenRecipe.html"><h3 class="recipeTitleOnImg"> ${article.acf.title}</h3></a>
+    `;
+    // Her sætter vi individualArticlesEl til at være = articleHTML
+    bottomArticleHeroEl.innerHTML += bottomHTML;
+}
+
+
 // Noget rod, men vi løb tør for tid, og ville vise hvordan 4 artikler kunne se ud sammen
- getToken().then(() => getPrivateArticle());
+ getToken()
+ .then(() => getPrivateArticle());
  getPrivateArticle();
  getPrivateArticle();
  getPrivateArticle();
  getSpringRecipes();
  getPrivateRecipes();
+ getHeroRecipe();
+ getTopArticleHero();
+ getBottomArticleHero();
 
 //--------------------------------Filtering Accordion--------------------------------------
 
