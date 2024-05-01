@@ -35,21 +35,21 @@
       </nav>
     </header>
     <main>
+      <!-- Alternativ måde at gøre det på. Burde nok bruge JS, men vi gik i stå. Det her burde være toggle -->
+      <div class="buttons">
+        <button  class="btn" onclick="addCookTime(43)">Fast Cooktime</button>
+        <button  class="btn" onclick="addCookTime(44)">Medium Cooktime</button>
+        <button  class="btn" onclick="addCookTime(45)">Slow Cooktime</button>
+        <button  class="btn" onclick="addDiet(36)">Vegan</button>
+        <button  class="btn" onclick="addDiet(7)">Keto</button>
+        <button  class="btn" onclick="addDiet(6)">Vegetarian</button>
+        <button  class="btn" onclick="addDiet(5)">Gluten free</button>
+        <button  class="btn" onclick="addDiet(35)">Diabetic friendly</button>
+        <button  class="btn" onclick="clearFilters()">Clear</button>
+      </div>
       <div class="container">
         <h1>All recipes</h1>
 
-        <!-- Alternativ måde at gøre det på. Burde nok bruge JS, men vi gik i stå -->
-        <div class="buttons">
-          <button onclick="addCookTime(43)">Fast Cooktime</button>
-          <button onclick="addCookTime(44)">Medium Cooktime</button>
-          <button onclick="addCookTime(45)">Slow Cooktime</button>
-          <button onclick="addDiet(36)">Vegan</button>
-          <button onclick="addDiet(7)">Keto</button>
-          <button onclick="addDiet(6)">Vegetatian</button>
-          <button onclick="addDiet(5)">Gluten free</button>
-          <button onclick="addDiet(35)">Diabetic friendly</button>
-          <button onclick="clearFilters()">Clear</button>
-        </div>
 
         <div class="individualRecipes"></div>
       </div>

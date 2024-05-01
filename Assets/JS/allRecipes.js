@@ -89,17 +89,6 @@ function renderIndividualRecipe(recipe) {
         <div class="recipe">
             <h5>${recipe.acf.title}</h5>
             <img src="${recipe.acf.image.sizes.large}" alt="${recipe.acf.title}">
-            <p>${recipe.acf.author}</p>
-            <input type="number" id="servings">
-            <p>${recipe.acf.description}</p>
-            <p>Prep time: ${recipe.acf.prep_time} min</p>
-            <p>Cook time: ${recipe.acf.cook_time} min</p>
-            <ul class="ingredients" id="${recipe.id}">
-                ${generateIngredientsList(recipe.acf.ingredients)}
-            </ul>
-            <div class="recipesTags">
-                <!-- Placeholder for tags -->
-            </div>
         </div>
     `;
 

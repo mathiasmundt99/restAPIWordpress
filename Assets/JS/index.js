@@ -1,3 +1,4 @@
+getToken();
 
 function renderRecipe(recipe){
     let recipeHTML =
