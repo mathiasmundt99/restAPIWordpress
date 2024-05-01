@@ -266,14 +266,29 @@ footer{
 .seasonal img, .featuredArticles img{
     max-width: 90%;
 }
-.FEP, .individualArticles{
+.FEP, .individualArticles, .individualRecipesSpring{
     display: flex;
     flex-direction: row;
 }
 
 .FEP img{
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
+}
+
+.imgDiv img {
+    max-width: 100%; 
+    height: auto; 
+}
+
+.articleDiv{
+    max-width: 25%;
+    margin: 2rem;
+}
+
+.recipeDiv{
+    max-width: 25%;
+    margin: 2rem;
 }
 
 .tags{

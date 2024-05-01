@@ -17,9 +17,8 @@ const slowCooktimeId = 45;
 // const vegetarianId = 6;
 
 const containerEL = document.querySelector('.container');
-const individualRecipesEl = document.querySelector('.individualRecipes');
+const individualRecipesEl = document.querySelector('.individualRecipesSpring');
 const individualArticlesEl = document.querySelector('.individualArticles');
-
 
 
 // Måske en if statement på undersiderne
@@ -43,8 +42,6 @@ function getToken(){
     })
     .catch(err => console.log('Error: ', err))
 }
-
-getToken().then(() => getPrivateRecipes());
 
 // De Begge nedestående funktioner henter både recipes & articles... Den burde kun hente recipes, og nedestående burde kun hente articles
 function getPrivateRecipes(){
@@ -80,19 +77,15 @@ function getPrivateArticle(){
 
 function renderArticle(article){
     let articleHTML =
-        `<div>
+        `<div class='articleDiv'>
         <div class ='imgDiv'>
-            <img class="imgHeroBig" src="${article.acf.image.sizes.medium}" alt="">
+            <img class="imgHeroBig" src="${article.acf.image.sizes.large}" alt="">
         </div>
             <h4>${article.acf.title}</h4>
         </div>`; 
         individualArticlesEl.innerHTML += articleHTML;
 }
         
-
- getToken().then(() => getPrivateArticle());
-
-
  function getPrivateRecipes(){
     fetch(baseUrl + `posts?status=private&categories=${recipeId}`, {
         headers: {
@@ -108,7 +101,7 @@ function renderArticle(article){
 }
 
 
-function getSprinRecipes(){
+function getSpringRecipes(){
     fetch(baseUrl + `posts?status=private&categories=${recipeId}`, {
         headers: {
             Authorization: "Bearer " + sessionStorage.getItem('myToken')
@@ -117,30 +110,34 @@ function getSprinRecipes(){
     .then(res => res.json())
     .then(recipes => {
         console.log('Fetched recepies:', recipes);
-        recipes.forEach(recipe => {
-            renderArticle(recipe);
+
+        const firstFourRecipes = recipes.slice(0, 4);
+
+        firstFourRecipes.forEach(recipe => {
+            renderSpringRecipes(recipe);
         });
     })
     .catch(err => console.log('Error: ', err))
 }
 
 function renderSpringRecipes(recipe){
-    let articleHTML =
-        `<div>
+    let recepieSpringHTML =
+        `<div class='recipeDiv'>
         <div class ='imgDiv'>
-            <img class="imgHeroBig" src="${recipe.acf.image.sizes.medium}" alt="">
+            <img class="imgHeroBig" src="${recipe.acf.image.sizes.large}" alt="">
         </div>
             <h4>${recipe.acf.title}</h4>
         </div>`; 
-        individualRecipesEl.innerHTML += articleHTML;
+        individualRecipesEl.innerHTML += recepieSpringHTML;
 }
         
-
+// Noget rod, men vi løb tør fra tid, og ville vise hvordan 4 artikler kunne se ud sammen
  getToken().then(() => getPrivateArticle());
-
-
-
-
+ getPrivateArticle();
+ getPrivateArticle();
+ getPrivateArticle();
+ getSpringRecipes();
+ getPrivateRecipes();
 
 //--------------------------------Filtering Accordion--------------------------------------
 
