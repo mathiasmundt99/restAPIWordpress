@@ -11,13 +11,14 @@
 }
 
 body{
-    margin: 4rem 18.75rem;
+    margin: 0;
     padding: 0;
     line-height: 1.5;
 }
 main{
-    margin: 42px 64px;
+    
     position: relative;
+    margin: 4rem 18.75rem;
 }
 
 .container{
@@ -38,6 +39,9 @@ main{
 
 h3{
     margin: 6px;
+}
+header{
+    margin: 42px 64px;
 }
 
 
@@ -89,6 +93,49 @@ a{
 
 
 /*------------------------Nav Slut----------------------------*/
+
+/*------------------------Footer-------------------------------*/
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color:#41443F ;
+    color: white;
+    padding: 24px;
+}
+.footerLinks{
+    display: flex;
+    gap: 6rem;
+}
+.iconContainer{
+    display: flex;
+    background-color: #92ca5b;
+    border-radius: 50px;
+    text-align: center;
+    justify-content: center;
+    width: fit-content;
+    height:fit-content;
+}
+.socialMediaIcons{
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+}
+.socialMediaIcons p{
+    margin-top: 0.25rem;
+    margin-bottom: 2rem;
+}
+.mediaCol1, .mediaCol2{
+    display: flex;
+    flex-direction: column;
+}
+.icon{
+    fill: white;
+    width: 2.5rem;
+    margin: 8px;
+}
+
+/*-------------------------------------------------------------*/
 
 
 
