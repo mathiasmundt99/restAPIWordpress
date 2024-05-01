@@ -257,6 +257,8 @@ footer{
     width: 8rem;
     height: 8rem;
     border-radius: 50%;
+    object-fit: cover;
+    object-position: 80%;
 }
 
 .arrowRight{
@@ -284,7 +286,10 @@ footer{
 .FEP img{
     max-width: 100%;
     height: auto;
+    object-fit: contain;
 }
+
+
 
 .imgDiv img {
     max-width: 100%; 
