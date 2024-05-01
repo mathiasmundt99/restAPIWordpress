@@ -335,7 +335,8 @@ footer{
     /* display: flex;
     flex-direction: column; */
     display: grid;
-    grid-template-columns: repeat(2, 40rem);
+    grid-template-columns: repeat(3, 25rem);
+    margin: 0px 36px;
 }
 .recipe{
     max-width: 100%;

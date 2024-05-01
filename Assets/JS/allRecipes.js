@@ -91,7 +91,7 @@ function renderIndividualRecipe(recipe) {
     const recipeHTML = `
     <div class="recipe">
     <a href="${recipeDetailUrl}" target="_blank">
-        <img src="${recipe.acf.image.sizes.large}" alt="${recipe.acf.title}">
+        <img src="${recipe.acf.image.sizes.medium}" alt="${recipe.acf.title}">
         <h5>${recipe.acf.title}</h5>
         <div class="FEPCookPrepTime">
           <p>Prep Time: ${recipe.acf.prep_time} min</p>
