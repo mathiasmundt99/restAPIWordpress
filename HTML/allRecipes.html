@@ -37,15 +37,8 @@
     <main>
       <!-- Alternativ måde at gøre det på. Burde nok bruge JS, men vi gik i stå. Det her burde være toggle -->
       <div class="buttons">
-        <button  class="btn" onclick="addCookTime(43)">Fast Cooktime</button>
-        <button  class="btn" onclick="addCookTime(44)">Medium Cooktime</button>
-        <button  class="btn" onclick="addCookTime(45)">Slow Cooktime</button>
-        <button  class="btn" onclick="addDiet(36)">Vegan</button>
-        <button  class="btn" onclick="addDiet(7)">Keto</button>
-        <button  class="btn" onclick="addDiet(6)">Vegetarian</button>
-        <button  class="btn" onclick="addDiet(5)">Gluten free</button>
-        <button  class="btn" onclick="addDiet(35)">Diabetic friendly</button>
-        <button  class="btn" onclick="clearFilters()">Clear</button>
+      
+        
       </div>
 
       <h1>All recipes</h1>
@@ -63,9 +56,9 @@
         <div class="accordionContainer">
           <button class="accordion">BY COOK TIME</button>
           <div class="accordionFilterBtns">
-            <div><input type="checkbox" onclick="addCookTime(45)"/>Fast</div>
+            <div><input type="checkbox" onclick="addCookTime(43)"/>Fast</div>
             <div><input type="checkbox" onclick="addCookTime(44)"/>Medium</div>
-            <div><input type="checkbox" />Slow</div>
+            <div><input type="checkbox" onclick="addCookTime(45)"/>Slow</div>
             <div><input type="checkbox" />Self cooking</div>
           </div>
         </div>
@@ -112,13 +105,14 @@
           <div class="accordionFilterBtns">
             <div><input type="checkbox" />Dairy free</div>
             <div><input type="checkbox" />Egg free</div>
-            <div><input type="checkbox" />Gluten free</div>
-            <div><input type="checkbox" />Vegan</div>
-            <div><input type="checkbox" />Vegitarian</div>
-            <div><input type="checkbox" />Diabetes friendly</div>
-            <div><input type="checkbox">Keto</div>
+            <div><input type="checkbox" onclick="addDiet(5)"/>Gluten free</div>
+            <div><input type="checkbox" onclick="addDiet(36)"/>Vegan</div>
+            <div><input type="checkbox" onclick="addDiet(6)"/>Vegitarian</div>
+            <div><input type="checkbox" onclick="addDiet(35)"/>Diabetic friendly</div>
+            <div><input type="checkbox" onclick="addDiet(7)">Keto</div>
           </div>
         </div>
+        <button  class="btn" onclick="clearFilters()">Clear Filters</button>
       </div> 
       <div class="container">
         <div class="individualRecipes"></div>
