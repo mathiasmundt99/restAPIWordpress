@@ -131,7 +131,7 @@ function getHeroRecipe(){
 
         // Check if there are at least 3 recipes in the array
         if (recipes.length >= 3) {
-            const firstRecipe = recipes[1]; // Get the third recipe (index 2)
+            const firstRecipe = recipes[0]; // Get the third recipe (index 2)
 
             // Render the third recipe
             renderHeroRecipe(firstRecipe);
@@ -190,10 +190,9 @@ function renderHeroRecipe(recipe){
     let heroHTML =
     `
     <img class="imgHeroBig" src="${recipe.acf.image.sizes.large}" alt="">
-    <a href="./chosenRecipe.html"><h3 class="recipeTitleOnImg"> Bottom Left</h3></a>
+    <a href="./chosenRecipe.html"><h3 class="recipeTitleOnImg"> ${recipe.acf.title}</h3></a>
     `; 
-    // Her sætter vi individualArticlesEl til at være = articleHTML
-    renderHeroRecipe.innerHTML += heroHTML;
+    focusedArticleHeroEl.innerHTML += heroHTML;
 }
 
 function renderTopRecipe(recipe){
