@@ -1,33 +1,76 @@
 getToken()
 
 // Her sættes variablerne til null som deafault
-let cooktimeId = null;
-let dietId = null;
+let cooktimeId = [];
+let dietId = [];
+let recipes = [];
+fetchRecipes();
 
 // Function som tilføjer ID ud fra klik af knap ved HTMl
 function addCookTime(id) {
-    cooktimeId = id;
-    fetchRecipes(); 
+    cooktimeId.push(id);
+    getRecipesByTaxonomies(cooktimeId, null)
+    //fetchRecipes();
 }
 
 // Her kaldes en clearFilter, som sætter begge Id'er til null
-function clearFilters(id) {
-    cooktimeId = null;
-    dietId = id;
-    fetchRecipes(); 
+function clearFilters() {
+    cooktimeId = [];
+    dietId = [];
+    individualRecipesEl.innerHTML = "";
+    let checkBoxes = document.querySelectorAll("input[type=checkbox]")
+    for (let checkBox of checkBoxes) {
+        checkBox.checked = false;
+    }
+    //getRecipesByTaxonomies(null, null)
+    //fetchRecipes();
 }
 
 // Samme som addCookTime
 function addDiet(id) {
-    dietId = id;
-    fetchRecipes(); 
+    dietId.push(id);
+    getRecipesByTaxonomies(null, dietId)
+    //fetchRecipes();
 }
 
 // Function to fetch and render recipes based on selected cooktimeId and dietId
 function fetchRecipes() {
-    let individualRecipesEl = document.querySelector('.individualRecipes');
+    let individualRecipesEl = document.querySelector('.individualRecipesSpring');
     individualRecipesEl.innerHTML = '';
+    let cooktimeIds = [43, 44, 45];
 
+    const baseUrl = 'https://mundt.gg/wp-json/wp/v2/';
+
+
+    for(let id of cooktimeIds) {
+        let url = baseUrl + 'posts?status=private';
+        url += `&cook-time=${id}`;
+
+        // Her defineres antal post pr. side
+        let perPage = 25;
+        let page = 1;
+        url += `&per_page=${perPage}&page=${page}`;
+
+        fetch(url, {
+            headers: {
+                Authorization: "Bearer " + sessionStorage.getItem('myToken')
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Failed to fetch recipes');
+                }
+                return res.json();
+            })
+            .then(recipesObjects => {
+                console.log('Recipes by taxonomies', recipesObjects);
+                recipes.push(recipesObjects);
+            })
+            .catch(err => {
+                console.log('Error fetching recipes:', err);
+            });
+    }
+    /*
     // kald getRecipesByTaxonomies med selected cooktimeId og dietId
     getRecipesByTaxonomies(cooktimeId, dietId)
         .then(recipes => {
@@ -39,50 +82,51 @@ function fetchRecipes() {
         .catch(err => {
             console.error('Error fetching or rendering recipes:', err);
         });
+     */
 }
 
 // Function til at kunne filtrere efter taxonomier
 function getRecipesByTaxonomies(cooktimeId, dietId) {
-    const baseUrl = 'https://mundt.gg/wp-json/wp/v2/';
-    let url = baseUrl + 'posts?status=private';
-
-   // Her kontrolleres om der er et cookTimeId og et dietId, hvis der er, så tilføjes de til url'en.
-    if (cooktimeId) {
-        url += `&cook-time=${cooktimeId}`;
+    individualRecipesEl.innerHTML = "";
+    if (cooktimeId === null && dietId === null) {
+        renderIndividualRecipe(recipes);
     }
-    if (dietId) {
-        //Jeg ved ikke hvorfor den virker sådan her, men når der sættes & foran diet=${dietID}, så virker det
-        url += (cooktimeId ? '&' : '') + `&diet=${dietId}`;
-    } 
 
-    // Her defineres antal post pr. side 
-    let perPage = 25; 
-    let page = 1;
-    url += `&per_page=${perPage}&page=${page}`;
-
-    return fetch(url, {
-        headers: {
-            Authorization: "Bearer " + sessionStorage.getItem('myToken')
+    for (let recipeEntries of recipes) {
+        for (let recipeEntry of recipeEntries) {
+            if (cooktimeId !== null) {
+                for (let cookingTimes of cooktimeId) {
+                if (recipeEntry.acf.cookingTime.term_id === cookingTimes) {
+                    renderIndividualRecipe(recipeEntry);
+                    }
+                }
+            }
+            else if (dietId !== null) {
+                for (let diet of dietId) {
+                if (Object.values(recipeEntry.acf.diet).includes(diet)) {
+                    renderIndividualRecipe(recipeEntry);
+                    }
+                }
+            }
+            else if (cooktimeId !== null && dietId !== null) {
+                for (let cookingTimes of cooktimeId) {
+                if (recipeEntry.acf.cookingTime.term_id === cookingTimes) {
+                    renderIndividualRecipe(recipeEntry);
+                    }
+                }
+                for (let diet of dietId) {
+                if (Object.values(recipeEntry.acf.diet).includes(diet)) {
+                    renderIndividualRecipe(recipeEntry);
+                    }
+                }
+            }
         }
-    })
-    .then(res => {
-        if (!res.ok) {
-            throw new Error('Failed to fetch recipes');
-        }
-        return res.json();
-    })
-    .then(recipes => {
-        console.log('Recipes by taxonomies', recipes);
-        return recipes; 
-    })
-    .catch(err => {
-        console.log('Error fetching recipes:', err);
-    });
+    }
 }
 
 // Function til at render recipe
 function renderIndividualRecipe(recipe) {
-    const individualRecipesEl = document.querySelector('.individualRecipes');
+    const individualRecipesEl = document.querySelector('.individualRecipesSpring');
 
     // Forsøgt at sende recipe ID sammen med chosenRecipe ved a href
     const recipeDetailUrl = `chosenRecipe.html?id=${recipe.id}`;
